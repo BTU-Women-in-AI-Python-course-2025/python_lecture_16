@@ -2,7 +2,7 @@
 
 - **Built-in authentication views** - https://docs.djangoproject.com/en/5.1/topics/auth/default/#module-django.contrib.auth.views
 - **Authentication** - https://docs.djangoproject.com/en/5.2/topics/auth/default/
-- **Password Reset** - 
+- **Password Reset** - https://github.com/BTU-Women-in-AI-Python-course-2025/python_lecture_16/blob/main/Additional%20resources/password_reset_view.md
 - **Password Reset Token Generator** - https://github.com/django/django/blob/main/django/contrib/auth/tokens.py
   
 ## 📚 **Student Task: Build a Simple Authentication System with Password Reset Token**
