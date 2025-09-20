@@ -113,6 +113,93 @@ templates/
     ├── password_reset_complete.html
 ```
 
+### 🔖 Example Templates
+
+#### `login.html`
+
+```html
+{% extends "base.html" %}
+{% block content %}
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+<a href="{% url 'password_reset' %}">Forgot password?</a>
+{% endblock %}
+```
+
+#### `password_change_form.html`
+
+```html
+{% extends "base.html" %}
+{% block content %}
+<h2>Change Password</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Change</button>
+</form>
+{% endblock %}
+```
+
+#### `password_change_done.html`
+
+```html
+{% extends "base.html" %}
+{% block content %}
+<p>Your password has been changed successfully.</p>
+<a href="{% url 'home' %}">Return to home</a>
+{% endblock %}
+```
+
+#### `password_reset_form.html`
+
+```html
+{% extends "base.html" %}
+{% block content %}
+<h2>Reset Password</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Send reset link</button>
+</form>
+{% endblock %}
+```
+
+#### `password_reset_done.html`
+
+```html
+{% extends "base.html" %}
+{% block content %}
+<p>We’ve emailed you instructions for setting your password. Please check your inbox.</p>
+{% endblock %}
+```
+
+#### `password_reset_confirm.html`
+
+```html
+{% extends "base.html" %}
+{% block content %}
+<h2>Set New Password</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Reset password</button>
+</form>
+{% endblock %}
+```
+
+#### `password_reset_complete.html`
+
+```html
+{% extends "base.html" %}
+{% block content %}
+<p>Your password has been reset successfully. You can now <a href="{% url 'login' %}">log in</a>.</p>
+{% endblock %}
+```
+
 ---
 
 ## ⚙️ Settings (Optional Enhancements)
@@ -138,5 +225,3 @@ LOGOUT_REDIRECT_URL = 'login'
 | `PasswordResetDoneView`     | `password_reset_done`     | Confirms email was sent                 |
 | `PasswordResetConfirmView`  | `password_reset_confirm`  | Confirms reset link & sets new password |
 | `PasswordResetCompleteView` | `password_reset_complete` | Password has been reset                 |
-
----
