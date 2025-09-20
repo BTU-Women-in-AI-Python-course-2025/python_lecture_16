@@ -143,7 +143,12 @@ class PasswordResetRequestView(View):
                 "user": user,
                 "reset_link": reset_link,
             })
-            send_mail(subject, message, None, [email])
+            send_mail(
+                subject=subject,
+                message=message,
+                from_email=settings.EMAIL_HOST_USER, 
+                recipient_list=[email]
+             )
 
             return render(request, "auth/password_reset_sent.html")
 
